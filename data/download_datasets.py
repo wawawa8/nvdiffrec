@@ -1,10 +1,10 @@
-# Copyright (c) 2020-2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved. 
+# Copyright (c) 2020-2022 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 #
 # NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
 # property and proprietary rights in and to this material, related
-# documentation and any modifications thereto. Any use, reproduction, 
-# disclosure or distribution of this material and related documentation 
-# without an express license agreement from NVIDIA CORPORATION or 
+# documentation and any modifications thereto. Any use, reproduction,
+# disclosure or distribution of this material and related documentation
+# without an express license agreement from NVIDIA CORPORATION or
 # its affiliates is strictly prohibited.
 
 import os
@@ -48,7 +48,7 @@ def download_nerd():
         dataset_rescaled = dataset + "_rescaled"
         os.makedirs(os.path.join("nerd", dataset_rescaled), exist_ok=True)
 
-        # Download dataset 
+        # Download dataset
         wget = requests.get("https://github.com/vork/%s/archive/refs/heads/master.zip" % dataset, stream=True)
         archive = zipfile.ZipFile(io.BytesIO(wget.content))
 
@@ -69,7 +69,7 @@ def download_nerd():
                 archive.extract(zipinfo, path="nerd")
         archive.close()
 
-download_nerf_synthetic()
+# download_nerf_synthetic()
 download_nerd()
 print("Completed")
 
